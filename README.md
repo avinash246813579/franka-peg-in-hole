@@ -111,6 +111,20 @@ Synthetic per-episode Gaussian noise added to the privileged hole xy passed to t
 
 Raw per-seed data is in [`results/eval_outputs.md`](results/eval_outputs.md). Earlier ablations *without* the stepped chamfer bottomed out around 2–3 mm of noise — beyond that, no algorithmic compliance tuning recovered. See [`docs/iteration-log.md`](docs/iteration-log.md) for the chamfer-vs-algorithm ablation.
 
+### Perception net (first-pass result: data-diversity-limited)
+
+A small wrist-camera CNN was trained end-to-end to predict hole xy in robot frame, then plugged into the controller's `hole_pos_b_override` slot for closed-loop deployment. **Three iterations** were run against the same architecture, varying dataset size and input channels:
+
+| Iter | Setup | Val MAE | Deployment success |
+|---|---|---|---|
+| 1 | 20 episodes, RGB only | 29.86 mm | 0/20 (0%) |
+| 2 | 100 episodes (5×), RGB only | 32.61 mm | 0/40 (0%) |
+| 3 | 100 episodes, RGB + depth | 33.24 mm | 0/40 (0%) |
+
+The first iteration was data-limited as expected. The 2nd and 3rd showed that **neither 5× more data nor adding depth moves the per-frame regression past the ~30 mm floor** — the bottleneck is data *diversity* (only 100 unique hole positions seen during training), not data quantity or input modality. The end-to-end pipeline (recorder → memmap preprocessor → CNN training → policy plug-in) is in place; next-iteration architecture changes (temporal fusion over the SCAN+APPROACH frame sequence, pretrained vision backbone, or relative-pose target) are the obvious next moves.
+
+Full ablation writeup in [`results/perception_iterations.md`](results/perception_iterations.md). Perception code lives in [`perception/`](perception/).
+
 ---
 
 ## Setup & reproduce
