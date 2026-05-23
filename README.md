@@ -259,6 +259,12 @@ In rough order:
 
 ---
 
+## Related work
+
+- **Predecessor:** [`franka-cube-stacking`](https://github.com/avinash246813579/franka-cube-stacking) — earlier-stage cube-stacking iteration (closed at 27.3% wide-spawn). The data-coverage lesson from that work motivated the SCAN pre-phase used in this repo.
+
+---
+
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
