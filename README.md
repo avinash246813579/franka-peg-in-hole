@@ -265,6 +265,6 @@ MIT. See [`LICENSE`](LICENSE).
 
 ## Contact
 
-Avinash Kumar · Trigun AI · [LinkedIn](https://www.linkedin.com/in/avinashk2/) · avinash@trigunai.com
+Avinash Kumar · Trigun AI · [LinkedIn](https://www.linkedin.com/in/avinash-kumar-973b5761/) · avinash@trigunai.com
 
 If you're a robotics or AI hiring team and want to chat about this work or about deployment to your hardware, I'd love to hear from you.
