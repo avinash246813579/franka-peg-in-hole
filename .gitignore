@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.eggs/
+
+# Virtual envs
+venv/
+.venv/
+env/
+ENV/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Secrets / credentials
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+.aws/
+.ssh/
+secrets/
+credentials.json
+
+# Isaac Sim / Isaac Lab artifacts
+isaac-sim/
+isaaclab_logs/
+*.usd~
+*.usda~
+omni.kit.*.log
+
+# Model checkpoints / large binaries (not committed; document how to regenerate)
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+
+# Datasets / demonstrations
+demos*.pt
+demos*.npz
+demos*.hdf5
+*.h5
+
+# Run outputs
+logs/
+runs/
+outputs/
+results/raw/
+*.log
+*.out
+*.err
+tmp/
+
+# Video / media (reference in README via external links)
+*.mp4
+*.mov
+*.webm
+*.gif
+*.avi
+
+# OS / archive
+*.zip
+*.tar
+*.tar.gz
+*.7z
